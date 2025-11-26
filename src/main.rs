@@ -29,7 +29,8 @@ fn main() {
             && action_lower != "del"
             && action_lower != "showkeys"
         {
-            println!("Supported actions: SET, GET, DEL, SHOWKEYS")
+            println!("Supported actions: SET, GET, DEL, SHOWKEYS");
+            continue;
         }
 
         // Get key if provided
@@ -41,6 +42,7 @@ fn main() {
                         "Expected key for action: {}",
                         action_lower.to_ascii_uppercase()
                     );
+                    continue;
                 }
                 String::new()
             }
@@ -52,6 +54,7 @@ fn main() {
             None => {
                 if action_lower == "set" {
                     println!("Expected value for SET action");
+                    continue;
                 }
                 String::new() // Empty string for GET/DEL operations
             }
